@@ -3,7 +3,7 @@
     <!-- Sidebar -->
     <aside class="w-64 bg-white shadow-xl p-6 flex flex-col">
       <div class="mb-10">
-        <h1 class="text-2xl font-bold text-indigo-600">MyApp</h1>
+        <h1 class="text-2xl font-bold text-indigo-600" @click="router.push('/')">MyApp</h1>
         <p class="text-gray-500 text-sm mt-1">Dashboard</p>
       </div>
       
@@ -29,7 +29,13 @@
           </div>
           <div>
             <p class="font-medium">{{ user || "User" }}</p>
-            <p class="text-sm text-gray-500">{{ mail || "email@example.com" }}</p>
+            <p class="text-sm text-gray-500">
+              {{ 
+  mail && mail.length > 20 
+    ? mail.split('@')[0].slice(0, 5) + '...@gmail.com' 
+    : (mail || "email@example.com") 
+}}
+            </p>
           </div>
         </div>
       </div>

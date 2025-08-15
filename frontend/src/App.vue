@@ -4,9 +4,8 @@ import { useRoute } from 'vue-router'
 
 const isLoggedIn = ref(localStorage.getItem('auth'))
 const route = useRoute()
-
-// Hide header/footer when on /signup
-const showLayout = computed(() => route.path !== '/signup')
+const paths = ['/login', '/signup', '/dashboard']
+const showLayout = computed(() => !paths.includes(route.path))
 </script>
 
 <template>
